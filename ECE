@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunflower Room — Early Childhood Education</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF8F3;
+    --cork:#C89666;
+    --cork-dark:#A97C50;
+    --green:#4C9A6A;
+    --green-dark:#3A7A53;
+    --blue:#3E8FB0;
+    --yellow:#F4B942;
+    --coral:#E85D4C;
+    --ink:#2B3A4A;
+    --paper:#FFFDF8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Nunito',sans-serif;line-height:1.55;}
+  h1,h2,h3,.display{font-family:'Fredoka',sans-serif;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:2px;}
+
+  /* ---------- NAV ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:3px solid var(--ink);}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.35rem;display:flex;align-items:center;gap:8px;}
+  .logo span.dot{width:14px;height:14px;background:var(--yellow);border-radius:50%;display:inline-block;border:2px solid var(--ink);}
+  .nav-links{display:flex;gap:22px;font-weight:700;font-size:0.95rem;}
+  .nav-links a{text-decoration:none;padding:6px 4px;border-bottom:3px solid transparent;}
+  .nav-links a:hover{border-bottom:3px solid var(--coral);}
+
+  /* ---------- HERO ---------- */
+  .hero{max-width:1100px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;}
+  .eyebrow{display:inline-block;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:4px 14px;font-weight:800;font-size:0.8rem;letter-spacing:0.03em;margin-bottom:14px;transform:rotate(-2deg);}
+  .hero h1{font-size:2.9rem;line-height:1.1;margin:0 0 16px;font-weight:600;}
+  .hero h1 em{font-style:normal;color:var(--green-dark);text-decoration:wavy underline var(--coral) 3px;text-underline-offset:6px;}
+  .hero p{font-size:1.08rem;max-width:46ch;margin:0 0 24px;}
+  .btn{display:inline-block;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1rem;padding:12px 26px;border-radius:12px;border:2.5px solid var(--ink);cursor:pointer;text-decoration:none;box-shadow:4px 4px 0 var(--ink);transition:transform .12s, box-shadow .12s;}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
+  .btn:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink);}
+  .btn-green{background:var(--green);color:#fff;}
+  .btn-blue{background:var(--blue);color:#fff;}
+  .btn-outline{background:var(--paper);color:var(--ink);}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+  .hero-peek{position:relative;background:radial-gradient(circle at 20% 20%, #D7A876 0, var(--cork) 45%, var(--cork-dark) 100%);border-radius:18px;border:3px solid var(--ink);padding:26px;min-height:280px;}
+  .peek-pin{width:140px;background:var(--paper);padding:10px 10px 30px;box-shadow:0 6px 14px rgba(0,0,0,0.35);position:absolute;font-family:'Nunito',sans-serif;}
+  .peek-pin img{border-radius:2px;}
+  .peek-pin::before{content:'';width:14px;height:14px;background:var(--coral);border-radius:50%;border:2px solid #8a2f24;position:absolute;top:-8px;left:50%;transform:translateX(-50%);box-shadow:0 2px 3px rgba(0,0,0,0.4);}
+  .peek-pin.p1{top:14px;left:20px;transform:rotate(-7deg);}
+  .peek-pin.p2{top:40px;right:10px;transform:rotate(6deg);}
+  .peek-pin.p3{bottom:10px;left:60px;transform:rotate(3deg);}
+  .peek-cap{font-size:0.72rem;text-align:center;margin-top:6px;font-weight:700;color:var(--ink);}
+
+  section{padding:64px 24px;}
+  .section-inner{max-width:1100px;margin:0 auto;}
+  .section-head{max-width:60ch;margin-bottom:36px;}
+  .section-head .eyebrow{background:var(--blue);color:#fff;border-color:var(--ink);}
+  .section-head h2{font-size:2rem;font-weight:600;margin:10px 0 8px;}
+
+  /* ---------- ACTIVITIES ---------- */
+  .activities-wrap{background:var(--paper);}
+  .activity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .activity-card{background:#fff;border:2.5px solid var(--ink);padding:22px;position:relative;transition:transform .15s;}
+  .activity-card:hover{transform:translateY(-4px);}
+  .activity-card.shape-round{border-radius:22px;}
+  .activity-card.shape-tag{border-radius:6px;}
+  .activity-card.shape-tag::after{content:'';position:absolute;top:14px;right:-9px;width:16px;height:16px;background:var(--cream);border:2.5px solid var(--ink);border-radius:50%;}
+  .activity-card.shape-scallop{border-radius:22px;box-shadow:inset 0 0 0 2px transparent;}
+  .activity-icon{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2px solid var(--ink);margin-bottom:14px;}
+  .activity-card h3{margin:0 0 8px;font-size:1.15rem;font-weight:600;}
+  .activity-card p{margin:0;font-size:0.94rem;color:#4a5568;}
+  .tag-strip{display:inline-block;margin-top:14px;font-size:0.75rem;font-weight:800;padding:3px 10px;border-radius:999px;border:2px solid var(--ink);}
+
+  /* ---------- GALLERY / CORKBOARD ---------- */
+  .board-wrap{background:radial-gradient(circle at 10% 10%, #D7A876 0, var(--cork) 40%, var(--cork-dark) 100%);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+  .board-wrap .section-head .eyebrow{background:var(--yellow);}
+  .board-wrap .section-head h2, .board-wrap .section-head p{color:#fff;}
+  .upload-panel{background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;padding:20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:32px;}
+  .upload-panel input[type=text]{flex:1;min-width:160px;padding:10px 12px;border-radius:10px;border:2px solid var(--ink);font-family:'Nunito',sans-serif;font-size:0.95rem;}
+  .upload-panel input[type=file]{font-family:'Nunito',sans-serif;font-size:0.85rem;}
+  .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:34px 20px;min-height:120px;}
+  .pin-card{background:var(--paper);padding:10px 10px 34px;box-shadow:0 8px 16px rgba(0,0,0,0.35);position:relative;}
+  .pin-card::before{content:'';width:16px;height:16px;background:var(--coral);border-radius:50%;border:2px solid #8a2f24;position:absolute;top:-9px;left:50%;transform:translateX(-50%);box-shadow:0 2px 3px rgba(0,0,0,0.4);}
+  .pin-card img{aspect-ratio:1/1;object-fit:cover;border-radius:2px;}
+  .pin-caption{font-size:0.78rem;text-align:center;font-weight:700;margin-top:8px;color:var(--ink);}
+  .pin-remove{position:absolute;bottom:4px;right:6px;background:none;border:none;color:#a33;font-weight:800;font-size:0.85rem;cursor:pointer;}
+  .board-empty{color:#fff;font-weight:700;padding:20px;text-align:center;grid-column:1/-1;background:rgba(255,255,255,0.12);border:2px dashed rgba(255,255,255,0.6);border-radius:14px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--cream);padding:40px 24px;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  .footer-inner h3{font-family:'Fredoka',sans-serif;margin:0 0 8px;}
+  .footer-inner p{margin:2px 0;font-size:0.9rem;opacity:0.85;}
+
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr;}
+    .hero-peek{min-height:220px;}
+    .activity-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .nav-links{display:none;}
+    .hero h1{font-size:2.1rem;}
+    .activity-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo"><span class="dot"></span> Sunflower Room</div>
+    <div class="nav-links">
+      <a href="#activities">Activities</a>
+      <a href="#gallery">Class Wall</a>
+      <a href="#footer">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <span class="eyebrow">Ages 3–5 · Morning &amp; Full-Day</span>
+    <h1>Where curious little minds get to <em>play, explore, and grow</em></h1>
+    <p>A warm, hands-on classroom where every day brings a new activity, a new story, and a new photo worth pinning to the wall.</p>
+    <div class="hero-actions">
+      <a href="#gallery" class="btn btn-green">See our class wall</a>
+      <a href="#activities" class="btn btn-outline">Browse activities</a>
+    </div>
+  </div>
+  <div class="hero-peek" aria-hidden="true">
+    <div class="peek-pin p1">
+      <img src="https://images.unsplash.com/photo-1587616211892-f4e40ce30327?w=200&h=140&fit=crop" alt="">
+      <div class="peek-cap">Story Circle</div>
+    </div>
+    <div class="peek-pin p2">
+      <img src="https://images.unsplash.com/photo-1526634332515-d56c5fd16991?w=200&h=140&fit=crop" alt="">
+      <div class="peek-cap">Paint Day</div>
+    </div>
+    <div class="peek-pin p3">
+      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=200&h=140&fit=crop" alt="">
+      <div class="peek-cap">Sand &amp; Water</div>
+    </div>
+  </div>
+</header>
+
+<section class="activities-wrap" id="activities">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">This week</span>
+      <h2>What we get up to in class</h2>
+      <p>A little bit of everything, every day — built around how young children actually learn: through play.</p>
+    </div>
+    <div class="activity-grid">
+
+      <div class="activity-card shape-round">
+        <div class="activity-icon" style="background:#EAF6EE;">🎨</div>
+        <h3>Art &amp; Craft</h3>
+        <p>Finger paint, collage, and clay — building fine motor skills one messy masterpiece at a time.</p>
+        <span class="tag-strip" style="background:#EAF6EE;">Creativity</span>
+      </div>
+
+      <div class="activity-card shape-tag">
+        <div class="activity-icon" style="background:#FDEFEA;">📖</div>
+        <h3>Storytime</h3>
+        <p>Picture books, puppet shows, and read-alouds that grow vocabulary and imagination together.</p>
+        <span class="tag-strip" style="background:#FDEFEA;">Language</span>
+      </div>
+
+      <div class="activity-card shape-round">
+        <div class="activity-icon" style="background:#EAF2F8;">🧩</div>
+        <h3>Sensory Play</h3>
+        <p>Sand, water beads, and textured bins that invite little hands to touch, pour, and discover.</p>
+        <span class="tag-strip" style="background:#EAF2F8;">Exploration</span>
+      </div>
+
+      <div class="activity-card shape-tag">
+        <div class="activity-icon" style="background:#FFF6E3;">🔢</div>
+        <h3>Numbers &amp; Letters</h3>
+        <p>Counting games, letter hunts, and songs that make early literacy feel like play, not work.</p>
+        <span class="tag-strip" style="background:#FFF6E3;">Early Learning</span>
+      </div>
+
+      <div class="activity-card shape-round">
+        <div class="activity-icon" style="background:#EAF6EE;">🌳</div>
+        <h3>Outdoor Exploration</h3>
+        <p>Bug hunts, leaf collecting, and garden watering — fresh air and curiosity, rain or shine.</p>
+        <span class="tag-strip" style="background:#EAF6EE;">Nature</span>
+      </div>
+
+      <div class="activity-card shape-tag">
+        <div class="activity-icon" style="background:#FDEFEA;">🎵</div>
+        <h3>Music &amp; Movement</h3>
+        <p>Dancing, drumming, and singalongs that build rhythm, coordination, and confidence.</p>
+        <span class="tag-strip" style="background:#FDEFEA;">Movement</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="board-wrap" id="gallery">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Our class wall</span>
+      <h2>Pin up today's photos</h2>
+      <p>Add a photo from any activity and give it a caption — it'll go straight up on the board for families to see.</p>
+    </div>
+
+    <form class="upload-panel" id="uploadForm">
+      <input type="file" id="photoInput" accept="image/*" required aria-label="Choose a photo to add">
+      <input type="text" id="captionInput" placeholder="Caption, e.g. Painting rainbows" maxlength="40">
+      <button type="submit" class="btn btn-blue">Pin to the wall</button>
+    </form>
+
+    <div class="board" id="board">
+      <p class="board-empty" id="boardEmpty">No photos pinned yet — add the first one above!</p>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="footer-inner">
+    <div>
+      <h3>Sunflower Room</h3>
+      <p>123 Meadow Lane, Springfield</p>
+      <p>Open Monday–Friday, 7:30am–5:30pm</p>
+    </div>
+    <div>
+      <h3>Get in touch</h3>
+      <p>hello@sunflowerroom.example</p>
+      <p>(555) 010-1234</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('uploadForm');
+  const photoInput = document.getElementById('photoInput');
+  const captionInput = document.getElementById('captionInput');
+  const board = document.getElementById('board');
+  const boardEmpty = document.getElementById('boardEmpty');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const file = photoInput.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(evt){
+      addPinnedPhoto(evt.target.result, captionInput.value.trim() || 'Class activity');
+      form.reset();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function addPinnedPhoto(src, caption){
+    if(boardEmpty) boardEmpty.remove();
+
+    const card = document.createElement('figure');
+    card.className = 'pin-card';
+    const rotate = (Math.random() * 8 - 4).toFixed(1);
+    card.style.transform = 'rotate(' + rotate + 'deg)';
+    card.style.margin = '0';
+
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = caption;
+    img.style.width = '100%';
+
+    const cap = document.createElement('figcaption');
+    cap.className = 'pin-caption';
+    cap.textContent = caption;
+
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'pin-remove';
+    removeBtn.type = 'button';
+    removeBtn.textContent = 'Remove';
+    removeBtn.setAttribute('aria-label', 'Remove this photo from the board');
+    removeBtn.addEventListener('click', function(){
+      card.remove();
+      if(board.children.length === 0){
+        board.appendChild(boardEmptyTemplate());
+      }
+    });
+
+    card.appendChild(img);
+    card.appendChild(cap);
+    card.appendChild(removeBtn);
+    board.appendChild(card);
+  }
+
+  function boardEmptyTemplate(){
+    const p = document.createElement('p');
+    p.className = 'board-empty';
+    p.id = 'boardEmpty';
+    p.textContent = 'No photos pinned yet — add the first one above!';
+    return p;
+  }
+</script>
+
+</body>
+</html>.
